@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/admin';
+const backendUrl = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080').replace(/\/$/, '');
+const API_URL = `${backendUrl}/api/admin`;
 
 export function api(token: string) {
   const instance = axios.create({
