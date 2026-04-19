@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Users, Music, Activity, LayoutDashboard, Trash2, Eye, LogOut, UserPlus, Radio, Calendar, Bot, Loader2, MessageSquare, Send } from 'lucide-react';
 
-const API_URL = "http://localhost:8080/api/admin"; // ชี้ไปที่ Backend
+const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/admin`; // ชี้ไปที่ Backend
 
 export default function Dashboard({ adminToken, onLogout }: { adminToken: string, onLogout: () => void }) {
   const [activeTab, setActiveTab] = useState('dashboard');
