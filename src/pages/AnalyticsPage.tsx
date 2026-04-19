@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from '../lib/api';
 import {
   BarChart3, Music, Heart, TrendingUp, Play,
 } from 'lucide-react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, Legend,
+  ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell,
 } from 'recharts';
 
 interface Analytics {
@@ -144,7 +144,7 @@ export default function AnalyticsPage({ token }: { token: string }) {
                   paddingAngle={2}
                   dataKey="count"
                   nameKey="genre"
-                  label={({ genre, percent }) => `${genre} ${(percent * 100).toFixed(0)}%`}
+                  label={({ name, percent }: { name?: string; percent?: number }) => `${name ?? ''} ${((percent ?? 0) * 100).toFixed(0)}%`}
                 >
                   {data.genre_distribution.slice(0, 10).map((_, i) => (
                     <Cell key={i} fill={COLORS[i % COLORS.length]} />

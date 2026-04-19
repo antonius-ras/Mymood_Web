@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { api } from '../lib/api';
 import {
   Search, Music, Trash2, Eye, EyeOff, Play, Pause, Bot, Loader2, X,
@@ -227,7 +227,7 @@ export default function ContentPage({ token }: { token: string }) {
                   <div className="flex gap-1 justify-end">
                     <button
                       onClick={() => handleReanalyze(song.id)}
-                      disabled={analyzingId === song.id || isComplete(song)}
+                      disabled={analyzingId === song.id || !!isComplete(song)}
                       className={`p-2 rounded-lg transition-colors ${
                         isComplete(song) ? 'text-gray-300 cursor-not-allowed' : 'text-purple-600 hover:bg-purple-50'
                       }`}

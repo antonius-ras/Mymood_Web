@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { api } from '../lib/api';
 import {
-  Bell, Megaphone, UserX, Send, Loader2, CheckCircle, AlertCircle,
+  Megaphone, UserX, Send, Loader2, CheckCircle,
 } from 'lucide-react';
 
 type Tab = 'broadcast' | 'inactive';

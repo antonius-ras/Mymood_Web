@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../lib/api';
 import {
   Search, Users, MessageSquare, Shield, ShieldOff, ShieldAlert,
-  Eye, ChevronDown, X, Send, Loader2,
+  Eye, X, Send, Loader2,
 } from 'lucide-react';
 
 interface User {

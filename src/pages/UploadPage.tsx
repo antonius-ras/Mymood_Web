@@ -1,8 +1,8 @@
-import React, { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { api } from '../lib/api';
 import {
   Upload, Music, Image, X, Loader2, CheckCircle, AlertCircle,
-  FileAudio, FileImage, Globe, Lock,
+  FileAudio, Globe, Lock,
 } from 'lucide-react';
 
 interface UploadResult {
