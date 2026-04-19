@@ -46,6 +46,7 @@ export default function DashboardPage({ token }: { token: string }) {
   const [userGrowth, setUserGrowth] = useState<any[]>([]);
   const [playGrowth, setPlayGrowth] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -57,10 +58,11 @@ export default function DashboardPage({ token }: { token: string }) {
           client.get('/stats/play-growth?days=14'),
         ]);
         setStats(statsRes.data);
-        setUserGrowth(ugRes.data);
-        setPlayGrowth(pgRes.data);
+        setUserGrowth(Array.isArray(ugRes.data) ? ugRes.data : []);
+        setPlayGrowth(Array.isArray(pgRes.data) ? pgRes.data : []);
       } catch (err) {
         console.error('Dashboard load error:', err);
+        setError('ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่อีกครั้ง');
       } finally {
         setLoading(false);
       }
@@ -72,6 +74,20 @@ export default function DashboardPage({ token }: { token: string }) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin w-8 h-8 border-4 border-purple-200 border-t-purple-600 rounded-full" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center h-64 gap-4">
+        <p className="text-red-500 text-lg">{error}</p>
+        <button
+          onClick={() => { setError(null); setLoading(true); }}
+          className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+        >
+          ลองใหม่
+        </button>
       </div>
     );
   }
