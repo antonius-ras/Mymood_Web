@@ -5,7 +5,7 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
 
 if (!supabaseUrl || !supabaseKey) {
-  throw new Error("Missing Supabase URL or Key in .env file");
+  console.error("Missing Supabase URL or Key — check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env vars");
 }
 
 console.log("URL:", supabaseUrl);
