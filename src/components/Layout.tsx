@@ -25,7 +25,7 @@ export default function Layout({ children, onLogout }: { children: ReactNode; on
           <div className="p-6 border-b border-gray-100">
             <div className="flex items-center gap-3">
               
-                <img className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center" src="../src/assets/Mymood_logo.png" alt="MyMood Logo" />
+                <img className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center" src="https://drive.google.com/uc?export=view&id=1dAEiVmZoaHSFrW2IAMikDmfrFMWML9D3" alt="MyMood Logo" />
               
               <div>
                 <h1 className="font-bold text-gray-800 text-lg leading-tight">MyMood</h1>
